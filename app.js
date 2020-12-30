@@ -10,9 +10,14 @@ const authRoute = require("./routes/auth");
 
 // db config
 const db_connect = ` mongodb+srv://home:Nn3mbJGeMsTUQiTs@cluster0.myqh1.mongodb.net/home?retryWrites=true&w=majority`;
-mongoose.connect(db_connect, { useNewUrlParser: true }, () => {
-  console.log(`db connected`);
-});
+mongoose.connect(
+  db_connect,
+  { useNewUrlParser: true },
+  { useUnifiedTopology: true },
+  () => {
+    console.log(`db connected`);
+  }
+);
 
 // middlewares
 app.use(express.json());
